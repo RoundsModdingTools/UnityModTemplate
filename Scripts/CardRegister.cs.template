@@ -2,17 +2,17 @@ using UnityEngine;
 using UnboundLib;
 using System.Collections.Generic;
 
-namespace {{ModName}} {
+namespace {{MOD_SAFE_NAME}} {
     public class CardRegister : MonoBehaviour {
         public List<GameObject> Cards;
         public List<GameObject> HiddenCards;
 
         internal void RegisterCards() {
             foreach (var Card in Cards) {
-                CustomCard.RegisterUnityCard(Card, {{ModName}}.modInitials, Card.GetComponent<CardInfo>().cardName, true, null);
+                CustomCard.RegisterUnityCard(Card, {{MOD_SAFE_NAME}}.modInitials, Card.GetComponent<CardInfo>().cardName, true, null);
             }
             foreach (var Card in HiddenCards) {
-                CustomCard.RegisterUnityCard(Card, {{ModName}}.modInitials, Card.GetComponent<CardInfo>().cardName, false, null);
+                CustomCard.RegisterUnityCard(Card, {{MOD_SAFE_NAME}}.modInitials, Card.GetComponent<CardInfo>().cardName, false, null);
                 ModdingUtils.Utils.Cards.instance.AddHiddenCard(Card.GetComponent<CardInfo>());
             }
         }
