@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnboundLib;
+using UnboundLib.Cards;
 using System.Collections.Generic;
 
 namespace {{MOD_SAFE_NAME}} {

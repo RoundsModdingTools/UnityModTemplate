@@ -16,7 +16,7 @@ namespace {{MOD_SAFE_NAME}} {
         
         void Awake() {
             instance = this;
-            new Harmony(modID).PatchAll();
+            new Harmony(modId).PatchAll();
 
             Debug.Log($"{modName} loaded!");
         }
