@@ -1,0 +1,27 @@
+using UnityEngine;
+using BepInEx;
+using HarmonyLib;
+
+namespace {{ModName}} {
+    {{BepInDependencies}}
+    [BepInPlugin("{{ModID}}", "{{ModName}}", "{{Version}")]
+    [BepInProcess("Rounds.exe")]
+    public class {{ModName}} : BaseUnityPlugin {
+        private const string modID = "{{ModID}}";
+        private const string modName = "{{ModName}}";
+
+        internal static string modInitials = "{{modInitial}}";
+        
+        internal static {{ModName}} instance;
+        
+        void Awake() {
+            instance = this;
+            new Harmony(modID).PatchAll();
+
+            Debug.Log("{{ModName}} loaded!");
+        }
+        void Start() {
+            Debug.Log("{{ModName}} started!");
+        }
+    }
+}
