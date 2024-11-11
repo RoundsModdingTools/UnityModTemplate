@@ -1,5 +1,6 @@
 using BepInEx;
 using HarmonyLib;
+using UnityEngine;
 
 namespace {{MOD_SAFE_NAME}} {
     {{BEPIN_DEPENDENCIES}}
@@ -8,14 +9,16 @@ namespace {{MOD_SAFE_NAME}} {
     public class {{MOD_SAFE_NAME}} : BaseUnityPlugin {
         private const string modId = "{{MOD_ID}}";
         private const string modName = "{{MOD_NAME}}";
-
-        internal static string modInitials = "{{MOD_INITIAL}}";
+        internal const string modInitials = "{{MOD_INITIAL}}";
         
         internal static {{MOD_SAFE_NAME}} instance;
+        internal static AssetBundle assets;
         
         void Awake() {
             instance = this;
             new Harmony(modId).PatchAll();
+
+            assets = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("{{ASSET_BUNDLE_NAME}}", typeof({{MOD_SAFE_NAME}}).Assembly);
 
             Debug.Log($"{modName} loaded!");
         }
